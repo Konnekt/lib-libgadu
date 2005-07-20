@@ -607,7 +607,6 @@ int gg_thread_socket(int thread_id, int socket)
     wsk->next = 0;
     *p_wsk = wsk;
 finish:
-	__try
 	gg_thread_socket_unlock();
 	return socket;
 }
