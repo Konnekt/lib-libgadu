@@ -1,7 +1,7 @@
 /* $Id: compat.h,v 1.3 2004/10/29 18:20:41 wojtekka Exp $ */
 
 /*
- *  (C) Copyright 2001-2002 Wojtek Kaniewski <wojtekka@irc.pl>,
+ *  (C) Copyright 2001-2002 Wojtek Kaniewski <wojtekka@irc.pl>
  *                          Robert J. Wo¼ny <speedy@ziew.org>
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@
 #endif
 
 #ifdef _WIN32
-
+    /*RL*/
     /* Wylaczylem cale gg_resolve - nie mozna wiec uzywac
     polaczen asynchronicznych...
     Na windowsie z reszta, najlepiej zrobic osobny watek
@@ -53,6 +53,8 @@
         #define close(handle) closesocket(handle)
     #endif
     #  define socket(af , type , protocol) WSASocket(af , type , protocol , 0 , 0 , WSA_FLAG_OVERLAPPED)
+
+	#define ECONNRESET 54
 
 
 // Na Win32 f-cje socketowe nie ustawiaj¹ errno. raz wywo³any s_errno ustawi numer b³êdu
