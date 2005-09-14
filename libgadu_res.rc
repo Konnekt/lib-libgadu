@@ -27,7 +27,7 @@ LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
 //
 
 1 VERSIONINFO
- FILEVERSION 1,180,5,0
+ FILEVERSION 1,180,6,0
  PRODUCTVERSION 0,6,0,0
  FILEFLAGSMASK 0x0L
 #ifdef _DEBUG
@@ -44,9 +44,9 @@ BEGIN
         BLOCK "041504e2"
         BEGIN
             VALUE "FileDescription", "libGadu - win32"
-            VALUE "FileVersion", "1.180.5"
+            VALUE "FileVersion", "1.181.1"
             VALUE "InternalName", "libGadu"
-            VALUE "LegalCopyright", "©2002,2003,2004"
+            VALUE "LegalCopyright", "©2002,2003,2004,2005"
             VALUE "ProductName", "libGadu"
             VALUE "ProductVersion", "0.6"
             VALUE "URL", "http://www.konnekt.info"

@@ -5,6 +5,7 @@
 
 #define EINPROGRESS WSAEINPROGRESS
 #define ENOTCONN WSAENOTCONN
+#define ECONNRESET WSAECONNRESET
 #define vsnprintf _vsnprintf
 #define snprintf _snprintf
 
