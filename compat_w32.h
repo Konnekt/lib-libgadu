@@ -1,30 +1,5 @@
-/* $Id: compat.h,v 1.3 2004/10/29 18:20:41 wojtekka Exp $ */
-
-/*
- *  (C) Copyright 2001-2002 Wojtek Kaniewski <wojtekka@irc.pl>
- *                          Robert J. Wo¼ny <speedy@ziew.org>
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU Lesser General Public License Version
- *  2.1 as published by the Free Software Foundation.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public
- *  License along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,
- *  USA.
- */
-
-#ifndef __COMPAT_H
-#define __COMPAT_H
-
-#ifdef sun
-#  define INADDR_NONE   ((in_addr_t) 0xffffffff)
-#endif
+#ifndef __COMPAT_W32_H
+#define __COMPAT_W32_H
 
 #ifdef _WIN32
 
@@ -39,7 +14,9 @@
     #pragma comment(lib , "Ws2_32.lib")
 
     #define strcasecmp _stricmp
+	#define strncasecmp strncmp
     #define snprintf _snprintf
+	#define gg_thread_socket gg_win32_thread_socket
 
     #define ASSIGN_SOCKETS_TO_THREADS /* gg_connect bedzie zapisywal nr socketa na liscie,
                                         tak zeby mozna go bylo zamknac w polaczeniach synchronicznych (z innego watku) */
