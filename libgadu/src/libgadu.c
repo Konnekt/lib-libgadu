@@ -1143,10 +1143,6 @@ void gg_logoff(struct gg_session *sess)
 		sess->pid = -1;
 	}
 #endif
-//[WTX] begin
-#define SHUT_RDWR 2
-//[WTX] end
-
 	if (sess->fd != -1) {
 		shutdown(sess->fd, SHUT_RDWR);
 		close(sess->fd);

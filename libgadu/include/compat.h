@@ -25,7 +25,7 @@
 #ifdef sun
 #  define INADDR_NONE   ((in_addr_t) 0xffffffff)
 #endif
-
+/*[WTX] begin */
 #include "..\..\compat_w32.h"
-
+/*[WTX] end */
 #endif

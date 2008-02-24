@@ -473,8 +473,10 @@ void gg_http_stop(struct gg_http *h)
 	}
 #else
 	if (h->pid != -1) {
+		//[WTX] begin
 		// kill(h->pid, SIGKILL);
 		// waitpid(h->pid, NULL, 0);
+		// [WTX] end
 		h->pid = -1;
 	}
 #endif

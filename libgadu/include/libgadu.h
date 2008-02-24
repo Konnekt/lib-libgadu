@@ -26,7 +26,9 @@
 #ifndef __GG_LIBGADU_H
 #define __GG_LIBGADU_H
 
+/*[WTX] begin */
 #include "..\..\libgadu_dll.h"
+/*[WTX] end */
 
 #ifdef __cplusplus
 #ifdef _WIN32

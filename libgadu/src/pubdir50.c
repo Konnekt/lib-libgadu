@@ -24,7 +24,7 @@
 #include <time.h>
 
 /*[WTX] start */
-#include "..\include\compat.h"
+#include "compat.h"
 /*[WTX] end */
 #include "libgadu.h"
 

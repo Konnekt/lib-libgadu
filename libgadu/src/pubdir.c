@@ -29,6 +29,9 @@
 #include <unistd.h>
 
 #include "libgadu.h"
+/*[WTX] begin */
+#include "compat.h"
+/*[WTX] end */
 
 /*
  * gg_register3()
@@ -147,7 +150,7 @@ struct gg_http *gg_unregister3(uin_t uin, const char *password, const char *toke
 		return NULL;
 	}
     
-	__pwd = gg_saprintf("%ld", rand());
+	__pwd = gg_saprintf("%ld", random());
 	__fmpwd = gg_urlencode(password);
 	__tokenid = gg_urlencode(tokenid);
 	__tokenval = gg_urlencode(tokenval);

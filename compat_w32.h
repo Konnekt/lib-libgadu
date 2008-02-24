@@ -17,6 +17,8 @@
 	#define strncasecmp strncmp
     #define snprintf _snprintf
 	#define gg_thread_socket gg_win32_thread_socket
+	#define random rand
+	#define SHUT_RDWR 2
 
     #define ASSIGN_SOCKETS_TO_THREADS /* gg_connect bedzie zapisywal nr socketa na liscie,
                                         tak zeby mozna go bylo zamknac w polaczeniach synchronicznych (z innego watku) */
