@@ -1,8 +1,8 @@
-/* $Id: compat.h 374 2004-10-29 18:20:42Z wojtekka $ */
+/* $Id: compat.h 506 2008-01-14 22:15:05Z wojtekka $ */
 
 /*
  *  (C) Copyright 2001-2002 Wojtek Kaniewski <wojtekka@irc.pl>
- *                          Robert J. Wo�ny <speedy@ziew.org>
+ *                          Robert J. Woźny <speedy@ziew.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License Version
@@ -19,13 +19,19 @@
  *  USA.
  */
 
+/**
+ * \file compat.h
+ *
+ * \brief Makra zapewniające kompatybilność API na różnych systemach
+ */
+
 #ifndef __COMPAT_H
 #define __COMPAT_H
 
 #ifdef sun
 #  define INADDR_NONE   ((in_addr_t) 0xffffffff)
 #endif
-/*[WTX] begin */
+
 #include "..\..\compat_w32.h"
-/*[WTX] end */
+
 #endif
