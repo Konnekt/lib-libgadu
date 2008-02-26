@@ -1,7 +1,7 @@
-dnl $Id: configure.ac 530 2008-02-16 13:35:37Z wojtekka $
+dnl $Id: configure.ac 537 2008-02-24 13:32:42Z wojtekka $
 
 AC_INIT(src/libgadu.c)
-AM_INIT_AUTOMAKE(libgadu, 1.7.2)
+AM_INIT_AUTOMAKE(libgadu, 1.8.0)
 
 AC_PREREQ(2.50)
 AC_CANONICAL_HOST
@@ -48,6 +48,9 @@ fi
 if test "x$STDINT_H" = "xsys/types.h"; then
 	AC_DEFINE([GG_CONFIG_HAVE_SYS_TYPES_H], [], [Defined if uintX_t types are defined in <sys/types.h>.])
 fi
+
+AC_DEFINE([GG_LIBGADU_VERSION], [], [Library version])
+AC_DEFINE_UNQUOTED(GG_LIBGADU_VERSION, "${VERSION}")
 
 dnl SunOS
 
