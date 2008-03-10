@@ -592,6 +592,19 @@ typedef struct gg_win32_thread {
 } gg_win32_thread;
 
 struct gg_win32_thread *gg_win32_threads = 0;
+CRITICAL_SECTION* gg_thread_socket_cs = 0;
+
+void gg_thread_socket_lock() {
+	if (!gg_thread_socket_cs) {
+		gg_thread_socket_cs = malloc(sizeof(CRITICAL_SECTION));
+		InitializeCriticalSection(gg_thread_socket_cs);
+	}
+	EnterCriticalSection(gg_thread_socket_cs);
+}
+
+void gg_thread_socket_unlock() {
+	LeaveCriticalSection(gg_thread_socket_cs);
+}
 
 /**
  * \internal Zwraca deskryptor gniazda, które było ostatnio tworzone dla wątku.
@@ -619,6 +632,8 @@ int gg_win32_thread_socket(int thread_id, int socket)
 	if (!thread_id)
 		thread_id = GetCurrentThreadId();
 
+	gg_thread_socket_lock();
+
 	while (wsk) {
 		if ((thread_id == -1 && wsk->socket == socket) || wsk->id == thread_id) {
 			if (close) {
@@ -626,12 +641,15 @@ int gg_win32_thread_socket(int thread_id, int socket)
 				closesocket(wsk->socket);
 				*p_wsk = wsk->next;
 				free(wsk);
+				gg_thread_socket_unlock();
 				return 1;
 			} else if (!socket) {
 				/* socket zostaje zwrocony */
+				gg_thread_socket_unlock();
 				return wsk->socket;
 			} else {
 				/* socket zostaje ustawiony */
+				gg_thread_socket_unlock();
 				wsk->socket = socket;
 				return socket;
 			}
@@ -642,8 +660,10 @@ int gg_win32_thread_socket(int thread_id, int socket)
 
 	if (close && socket != -1)
 		closesocket(socket);
-	if (close || !socket)
+	if (close || !socket) {
+		gg_thread_socket_unlock();
 		return 0;
+	}
 
 	/* Dodaje nowy element */
 	wsk = malloc(sizeof(gg_win32_thread));
@@ -652,6 +672,7 @@ int gg_win32_thread_socket(int thread_id, int socket)
 	wsk->next = 0;
 	*p_wsk = wsk;
 
+	gg_thread_socket_unlock();
 	return socket;
 }
 

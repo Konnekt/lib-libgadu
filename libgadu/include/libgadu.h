@@ -1338,6 +1338,10 @@ void gg_resolve_pthread_cleanup(void *resolver, int kill);
 #ifdef _WIN32
 LIBGADU_DLL
 int gg_thread_socket(int thread_id, int socket);
+LIBGADU_DLL
+void gg_thread_socket_lock();
+LIBGADU_DLL
+void gg_thread_socket_unlock();
 #endif
 
 LIBGADU_DLL
