@@ -994,8 +994,7 @@ LIBGADU_DLL gg_thread* gg_thread_find(int thread_id, int socket, gg_thread *** p
 
 LIBGADU_DLL void gg_thread_socket_lock();
 LIBGADU_DLL void gg_thread_socket_unlock();
-LIBGADU_DLL 
-int gg_thread_socket(int thread_id, int socket);
+LIBGADU_DLL int gg_thread_socket(int thread_id, int socket);
 #endif
 
 LIBGADU_DLL 
